@@ -10,12 +10,16 @@ class StocksController < ApplicationController
           format.js { render partial: 'users/result' }
         end
       else  
-        flash[:danger] = "Ticker not found"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:danger] = "Ticker not found"
+          format.js { render partial: 'users/result' }
+        end
       end
     else
-      flash[:danger] = "Enter ticker"
-      render 'users/my_portfolio'
+      respond_to do |format|
+        flash.now[:danger] = "Enter ticker"
+        format.js { render partial: 'users/result' }
+      end
     end
   end
 end
