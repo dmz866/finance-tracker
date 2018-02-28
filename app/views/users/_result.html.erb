@@ -1,12 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9">
-      <div class="results-block">
-        <%= bootstrap_flash %>
-      </div>
-    </div>
-  </div>
-</div>  
+<div class="results-block">
+  <%= bootstrap_flash %>
+</div>
 <% if @stock %>
   <div class="well results-block">
     <strong>Symbol: </strong><%= @stock.ticker %>
