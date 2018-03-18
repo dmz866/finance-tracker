@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       flash[:danger] = "Enter a name or email"  
     else
       @users = User.search(params[:search_param])
-      flash[:danger] = "Friend not found" unless @users
+      @users = current_user.except_current_user(@users)
+      flash[:danger] = "Friend not found" if @users.count <= 0 
     end
     
     respond_to do |format|
