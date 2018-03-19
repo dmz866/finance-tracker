@@ -13,7 +13,7 @@
             <tr>
               <td><strong>Name: </strong><%= user.full_name %></td>
               <td><strong>Email: </strong><%= user.email %></td>
-              <td><%= link_to "View Profile", "#", class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-primary" %></td>
               <td>
                 <% if current_user.not_friends_with?(user.id) %>
                   <%= link_to "Add Friend", add_friend_path(user: current_user, friend: user),
